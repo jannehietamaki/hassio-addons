@@ -38,7 +38,7 @@ RUN \
     && npm cache clear --force
 
 # Copy root filesystem
-COPY rootfs /
+COPY . /opt/
 
 # Build arguments
 ARG BUILD_ARCH
@@ -46,5 +46,5 @@ ARG BUILD_DATE
 ARG BUILD_REF
 ARG BUILD_VERSION
 
-RUN chmod a+x /run.sh
-CMD [ "/run.sh" ]
+RUN chmod a+x /opt/run.sh
+CMD [ "/opt/run.sh" ]

@@ -3,12 +3,12 @@ FROM $BUILD_FROM
 
 ENV LANG C.UTF-8
 
-ADD package.json /
+ADD package.json .
 
-RUN apk add --no-cache nodejs-npm jq && \
-npm install
+RUN apk add --no-cache nodejs-npm
+RUN npm install
 
-COPY run.sh /
+COPY . .
+
 RUN chmod a+x /run.sh
-
 CMD [ "/run.sh" ]

@@ -3,7 +3,7 @@ ARG BUILD_FROM=hassioaddons/base:5.0.1
 FROM ${BUILD_FROM}
 
 # Copy Node-RED package.json
-COPY package.json requirements.txt /opt/
+COPY package.json /opt/
 
 # Set workdir
 WORKDIR /opt

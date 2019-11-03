@@ -17,12 +17,20 @@ const handleAction = (ws) => (message) => {
 
 wss.on('connection', (ws) => {
   connection = ws;
+  console.log('WebSocket connected', ws);
   ws.on('message', handleAction(ws));
+});
+
+wss.on('close', () => {
+  console.log('WebSocket connection closed');
 });
 
 const send = (data) => {
   if (connection) {
+    console.log('Send data to WebSocket', data);
     connection.send(JSON.stringify(data));
+  } else {
+    console.log('WARN: unable to send data. No connection', data);
   }
 }
 

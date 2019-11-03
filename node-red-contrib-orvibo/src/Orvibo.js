@@ -170,7 +170,9 @@ Orvibo.prototype.startServer = function() {
 
         socket.on('end', function () {
             let pkData = getData(socket.id);
-            logger.log(`Plug ${pkData.uid} - ${pkData.name} disconnected`);
+            if (pkData) {
+              logger.log(`Plug ${pkData.uid} - ${pkData.name} disconnected`);
+            }
             self.emit('plugDisconnected', {uid: pkData.uid, name: pkData.name});
             plugConnections.splice(plugConnections.indexOf(socket), 1);
         });

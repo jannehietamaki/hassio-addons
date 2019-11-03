@@ -37,7 +37,6 @@ RUN \
     \
     && npm cache clear --force
 
-# Copy root filesystem
 COPY . /opt/
 
 # Build arguments

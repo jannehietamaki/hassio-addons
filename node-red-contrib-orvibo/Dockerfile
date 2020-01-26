@@ -1,8 +1,6 @@
-ARG BUILD_FROM=hassioaddons/base:5.0.1
-# hadolint ignore=DL3006
+ARG BUILD_FROM=hassioaddons/base:6.0.1
 FROM ${BUILD_FROM}
 
-# Copy Node-RED package.json
 COPY package.json /opt/
 
 # Set workdir
@@ -14,18 +12,23 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Setup base
 RUN \
     apk add --no-cache --virtual .build-dependencies \
-        g++=8.3.0-r0 \
-        gcc=8.3.0-r0 \
-        libc-dev=0.7.1-r0 \
+        g++=9.2.0-r3 \
+        gcc=9.2.0-r3 \
+        libc-dev=0.7.2-r0 \
         linux-headers=4.19.36-r0 \
         make=4.2.1-r2 \
         py2-pip=18.1-r0 \
-        python2-dev=2.7.16-r1 \
+        python2-dev=2.7.16-r3 \
     \
     && apk add --no-cache \
-        nodejs=10.16.3-r0 \
-        npm=10.16.3-r0 \
+        git=2.24.1-r0 \
+        lua-resty-http=0.15-r0 \
+        nodejs=12.14.0-r0 \
+        npm=12.14.0-r0 \
+        paxctl=0.9-r0 \
+        python2=2.7.16-r3 \
     \
+    && paxctl -cm "$(command -v node)" \
     && npm config set unsafe-perm true \
     \
     && npm install \
@@ -36,6 +39,7 @@ RUN \
         --unsafe-perm \
     \
     && npm cache clear --force
+    
 
 COPY . /opt/
 
@@ -48,4 +52,4 @@ ARG BUILD_VERSION
 EXPOSE 10001 8080
 
 RUN chmod a+x /opt/run.sh
-CMD [ "/opt/run.sh" ]
+CMD [ "/opt/run.sh" ]    

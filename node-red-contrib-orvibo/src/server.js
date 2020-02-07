@@ -55,8 +55,8 @@ orvibo.on('plugDisconnected', (data) => {
 });
 
 orvibo.on('plugDisconnectedWithError', (error) => {
-  send({ type: 'error', data});
-  console.log('error', data);
+  send({ type: 'error', errro});
+  console.log('error', error);
 });
 
 orvibo.startServer();

@@ -24,7 +24,7 @@ RUN \
         git=2.24.1-r0 \
         lua-resty-http=0.15-r0 \
         nodejs=12.15.0-r1 \
-        npm=npm-12.15.0-r1 \
+        npm=12.15.0-r1 \
         paxctl=0.9-r0 \
         python2=2.7.16-r3 \
     \

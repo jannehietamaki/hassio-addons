@@ -8,6 +8,7 @@
   "boot": "auto",
   "options": {},
   "schema": {},
+  "devices": ["/dev/ttyUSB0:/dev/ttyUSB0:rwm"],
   "host_network": true,
   "ports": {
     "8081/tcp": 8081

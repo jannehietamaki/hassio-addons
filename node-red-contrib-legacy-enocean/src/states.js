@@ -16,10 +16,13 @@ const trigger = (event) => throttle(() => {
 const process = (data) => {
   const event = parseERP1(data);
   states[event.buttonId] = data;
+  console.log('process!', event);
   if (event && event.push) {
     setTimeout(() => {
       const oldState = states[event.buttonId];
+      console.log('oldState for button', oldState);
       if (oldState.eventId === event.eventId) {
+        console.log('long event');
         trigger({
           button: event.button,
           turnon: event.turnon,
@@ -27,7 +30,7 @@ const process = (data) => {
         });
       }
     }, 600);
-
+    console.log('push event, short');
     trigger({
       button: event.button,
       turnon: event.turnon,
@@ -38,7 +41,7 @@ const process = (data) => {
 
 const listen = (parser, send) => {
   sender = send;
-  parser.on(data, process);
+  parser.on(process);
 }
 
 module.exports = { listen };

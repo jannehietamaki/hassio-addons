@@ -1,18 +1,16 @@
 const { parseERP1 } = require('./erp1-parser');
-const throttledQueue = require('throttled-queue');
-var throttle = throttledQueue(2, 1000);
 
 let sender;
 const states = {};
 
-const trigger = (event) => throttle(() => {
+const trigger = (event) => {
   if (sender) {
     console.log('Send event', event);
     sender(event);
   } else {
     console.log('No sender!', event);
   }
-});
+};
 
 const process = (data) => {
   console.log('process packet', data);

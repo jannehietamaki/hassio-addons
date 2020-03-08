@@ -6,7 +6,9 @@ const test = (data, expected) => {
   console.log({ expected, parsed });
   assert(parsed.button === expected.button);
   assert(parsed.push === expected.push);
-  // assert(parsed.turnon === expected.turnon);
+  if (parsed.push) {
+    assert(parsed.turnon === expected.turnon);
+  }
 };
 
 test(
@@ -33,6 +35,7 @@ test(
     turnon: false,
   }
 ); // push 1
+
 test(
   [85,   0,   7,   7,   1, 122, 246, 0,   0,  53, 197, 239,  32,   0, 255, 255, 255, 255,  80,   0,  20],
   {

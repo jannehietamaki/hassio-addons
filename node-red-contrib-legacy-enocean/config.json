@@ -1,0 +1,16 @@
+{
+  "name": "node-red-contrib-legacy-enocean",
+  "version": "1",
+  "slug": "node-red-contrib-legacy-enocean",
+  "description": "Legacy EnOcean WebSocket server",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "startup": "before",
+  "boot": "auto",
+  "options": {},
+  "schema": {},
+  "host_network": true,
+  "ports": {
+    "10002/tcp": 10002,
+    "8080/tcp": 8080
+  }
+}

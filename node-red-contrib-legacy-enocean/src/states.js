@@ -5,7 +5,7 @@ const states = {};
 
 const trigger = (event) => {
   if (sender) {
-    console.log('Send event', event);
+     console.log('Send event', event);
     sender(event);
   } else {
     console.log('No sender!', event);

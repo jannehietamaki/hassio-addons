@@ -16,7 +16,7 @@ test(
   {
     button: '00:35:c5:ef',
     push: true,
-    turnon: true,
+    turnon: false,
   }
 ); // push 0
 test(
@@ -24,7 +24,7 @@ test(
   {
     button: '00:35:c5:ef',
     push: false,
-    turnon: true,
+    turnon: false,
   }
 ); // release 0
 test(
@@ -32,7 +32,7 @@ test(
   {
     button: '00:35:c5:ef',
     push: true,
-    turnon: false,
+    turnon: true,
   }
 ); // push 1
 
@@ -41,6 +41,6 @@ test(
   {
     button: '00:35:c5:ef',
     push: false,
-    turnon: false,
+    turnon: true,
   }
 ); // release 1

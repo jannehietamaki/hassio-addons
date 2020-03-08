@@ -49,7 +49,7 @@ ARG BUILD_DATE
 ARG BUILD_REF
 ARG BUILD_VERSION
 
-EXPOSE 10002 8080
+EXPOSE 8081
 
 RUN chmod a+x /opt/run.sh
 CMD [ "/opt/run.sh" ]

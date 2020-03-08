@@ -10,7 +10,6 @@
   "schema": {},
   "host_network": true,
   "ports": {
-    "10002/tcp": 10002,
-    "8080/tcp": 8080
+    "8081/tcp": 8081
   }
 }

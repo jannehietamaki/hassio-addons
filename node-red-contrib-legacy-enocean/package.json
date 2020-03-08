@@ -7,6 +7,8 @@
   "dependencies": {
     "enocean-js": "^0.0.15",
     "serialport": "^8.0.7",
+    "throttled-queue": "^1.0.7",
+    "uuid": "^7.0.2",
     "ws": "^7.2.0"
   }
 }

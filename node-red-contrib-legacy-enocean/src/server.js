@@ -3,11 +3,11 @@ const SerialPort = require('serialport');
 const Enocean = require('enocean-js');
 const pretty = Enocean.pretty
 const ESP3Parser = Enocean.ESP3Parser
+const states = require('./states');
 
 const port = new SerialPort('/dev/ttyUSB0', { baudRate: 57600 })
 const parser = new ESP3Parser()
 port.pipe(parser)
-
 
 const wss = new WebSocket.Server({ port: 8081 });
 
@@ -35,8 +35,10 @@ const send = (data) => {
   } else {
     console.log('WARN: unable to send data. No connection', data);
   }
-}
+};
 
-parser.on('data', (data) => {
-  console.log(data);
+states.listen(parser, send);
+
+process.on('unhandledRejection', error => {
+  console.log('unhandledRejection', error.message);
 });

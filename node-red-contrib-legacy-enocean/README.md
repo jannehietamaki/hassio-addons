@@ -1,3 +1,3 @@
 
-# EnOcean WebSocker protocol
+# EnOcean ERP1 WebSocker protocol
 

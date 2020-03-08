@@ -60,3 +60,7 @@ orvibo.on('plugDisconnectedWithError', (error) => {
 });
 
 orvibo.startServer();
+
+process.on('unhandledRejection', error => {
+  console.log('unhandledRejection', error.message);
+});

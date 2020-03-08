@@ -41,7 +41,8 @@ const process = (data) => {
 
 const listen = (parser, send) => {
   sender = send;
-  parser.on(process);
+  console.log(process)
+  parser.on('data', process);
 }
 
 module.exports = { listen };

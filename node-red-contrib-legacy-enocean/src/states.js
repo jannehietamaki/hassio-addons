@@ -16,7 +16,7 @@ const trigger = (event) => throttle(() => {
 
 const process = (data) => {
   console.log('process packet', data);
-  const event = parseERP1(data);
+  const event = parseERP1(data._raw);
   states[event.buttonId] = data;
   console.log('process!', event);
   if (event && event.push) {

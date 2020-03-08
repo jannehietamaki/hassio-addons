@@ -1,3 +1,4 @@
+const { parseERP1 } = require('./erp1-parser');
 const throttledQueue = require('throttled-queue');
 var throttle = throttledQueue(2, 1000);
 

@@ -15,6 +15,7 @@ const trigger = (event) => throttle(() => {
 });
 
 const process = (data) => {
+  console.log('process packet', data);
   const event = parseERP1(data);
   states[event.buttonId] = data;
   console.log('process!', event);
@@ -42,7 +43,6 @@ const process = (data) => {
 
 const listen = (parser, send) => {
   sender = send;
-  console.log(process)
   parser.on('data', process);
 }
 

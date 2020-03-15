@@ -9,7 +9,7 @@ const port = new SerialPort('/dev/ttyUSB0', { baudRate: 57600 })
 const parser = new ESP3Parser()
 port.pipe(parser)
 
-const wss = new WebSocket.Server({ port: 8081 });
+const wss = new WebSocket.Server({ port: 8082 });
 
 let connection;
 

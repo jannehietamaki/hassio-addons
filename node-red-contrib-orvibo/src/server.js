@@ -1,6 +1,14 @@
 const Orvibo = require('./Orvibo');
 const WebSocket = require('ws');
 
+
+function noop() {}
+ 
+function heartbeat() {
+  this.isAlive = true;
+}
+ 
+
 const wss = new WebSocket.Server({ port: 8080 });
 
 let connection;
@@ -16,13 +24,26 @@ const handleAction = (ws) => (message) => {
 };
 
 wss.on('connection', (ws) => {
+  ws.isAlive = true;
+  ws.on('pong', heartbeat);
   connection = ws;
   console.log('WebSocket connected', ws);
   ws.on('message', handleAction(ws));
 });
 
+
+const interval = setInterval(function ping() {
+  wss.clients.forEach(function each(ws) {
+    if (ws.isAlive === false) return ws.terminate();
+ 
+    ws.isAlive = false;
+    ws.ping(noop);
+  });
+}, 30000);
+ 
 wss.on('close', () => {
   console.log('WebSocket connection closed');
+  clearInterval(interval);
 });
 
 const send = (data) => {

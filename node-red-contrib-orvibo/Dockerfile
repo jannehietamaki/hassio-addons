@@ -21,11 +21,10 @@ RUN \
         musl=1.1.24-r9 \
     \
     && apk add --no-cache \
-        git=2.24.3-r0 \
+        git=2.26.2-r0 \
         lua-resty-http=0.15-r0 \
-        nodejs=12.15.0-r1 \
-        npm=12.15.0-r1 \
-        paxctl=0.9-r0 \
+        nodejs=12.18.4-r0 \
+        npm=12.18.4-r0 \
         python2=2.7.18-r0 \
     \
     && paxctl -cm "$(command -v node)" \

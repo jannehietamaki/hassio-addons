@@ -12,6 +12,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Setup base
 RUN \
     apk add --no-cache \
+        paxctl \
         g++=9.3.0-r2 \
         gcc=9.3.0-r2 \
         libc-dev=0.7.2-r3 \

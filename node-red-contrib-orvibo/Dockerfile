@@ -1,4 +1,4 @@
-ARG BUILD_FROM=hassioaddons/base:6.0.1
+ARG BUILD_FROM=hassioaddons/base:8.0.5
 FROM ${BUILD_FROM}
 
 COPY package.json /opt/
@@ -12,7 +12,6 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Setup base
 RUN \
     apk add --no-cache \
-        paxctl \
         g++=9.3.0-r2 \
         gcc=9.3.0-r2 \
         libc-dev=0.7.2-r3 \
@@ -28,7 +27,6 @@ RUN \
         npm=12.18.4-r0 \
         python2=2.7.18-r0 \
     \
-    && paxctl -cm "$(command -v node)" \
     && npm config set unsafe-perm true \
     \
     && npm install \

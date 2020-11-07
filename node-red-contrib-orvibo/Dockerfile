@@ -19,7 +19,7 @@ RUN \
         make=4.2.1-r2 \
         py2-pip=18.1-r0 \
         python2-dev=2.7.18-r0 \ 
-        musl=1.1.24-r2 \
+        musl=1.1.24-r9 \
     \
     && apk add --no-cache \
         git=2.24.3-r0 \

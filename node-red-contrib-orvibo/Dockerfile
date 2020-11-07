@@ -12,8 +12,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Setup base
 RUN \
     apk add --no-cache \
-        g++=9.3.0-r0 \
-        gcc=9.3.0-r0 \
+        g++=9.3.0-r3 \
+        gcc=9.3.0-r2 \
         libc-dev=0.7.2-r3 \
         linux-headers=5.4.5-r1 \
         make=4.3-r0 \

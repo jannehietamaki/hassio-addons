@@ -17,7 +17,6 @@ RUN \
         libc-dev=0.7.2-r3 \
         linux-headers=5.4.5-r1 \
         make=4.3-r0 \
-        py2-pip=18.1-r0 \
         python2-dev=2.7.18-r0 \ 
         musl=1.1.24-r9 \
     \
